@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel de Chuwi</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0a1020; --panel:#121a31; --soft:#1a2544; --line:#2a3a66; --text:#eef3ff; --muted:#aeb9d8; --accent:#78c4ff; --good:#5ad18a; --warn:#ffcc66; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,system-ui,sans-serif; background:linear-gradient(180deg,#0a1020,#0e1730); color:var(--text); }
+    main { max-width:1200px; margin:0 auto; padding:28px 18px 56px; }
+    h1,h2,h3 { margin:0; }
+    .top { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:end; margin-bottom:18px; }
+    .lead { color:var(--muted); margin-top:8px; max-width:800px; }
+    .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin:18px 0 24px; }
+    .stat,.panel,.card { background:var(--panel); border:1px solid var(--line); border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,.2); }
+    .stat { padding:16px; }
+    .stat .k { color:var(--muted); font-size:.92rem; }
+    .stat .v { font-size:1.5rem; margin-top:6px; font-weight:700; }
+    .grid { display:grid; grid-template-columns:1.2fr .8fr; gap:14px; }
+    .panel { padding:16px; }
+    .panel + .panel { margin-top:14px; }
+    .two { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; }
+    pre { margin:0; white-space:pre-wrap; word-break:break-word; font-family:ui-monospace,SFMono-Regular,monospace; font-size:.88rem; line-height:1.45; color:#d8e2ff; }
+    .muted { color:var(--muted); }
+    .links a { color:var(--accent); text-decoration:none; }
+    .links li { margin:8px 0; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; margin-top:12px; }
+    .card { padding:14px; }
+    .card h3 { color:var(--accent); font-size:1rem; margin-bottom:8px; }
+    .card p { color:var(--muted); line-height:1.4; min-height:4.2em; }
+    code { display:block; padding:8px 10px; background:#0b1020; border-radius:10px; overflow:auto; color:#c7d6ff; }
+    .badge { display:inline-block; padding:6px 10px; border-radius:999px; background:var(--soft); border:1px solid var(--line); color:var(--text); margin-right:8px; margin-top:6px; }
+    @media (max-width: 900px) { .grid,.two { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <div>
+      <h1>Panel de Chuwi</h1>
+      <p class="lead">Vista rápida para saber qué soy, qué tengo instalado y qué cambios recientes ha habido. Pensado para convertirlo luego en una URL segura para el móvil.</p>
+    </div>
+    <div>
+      <span class="badge">Correo: quitiweb.chuwi@gmail.com</span>
+      <span class="badge">Canal: Telegram</span>
+      <span class="badge">Bot: @quitiweb_bot</span>
+    </div>
+  </div>
+
+  <section class="stats">
+    <div class="stat"><div class="k">Skills totales</div><div class="v">54</div></div>
+    <div class="stat"><div class="k">Skills privadas</div><div class="v">1</div></div>
+    <div class="stat"><div class="k">Skills incluidas</div><div class="v">53</div></div>
+    <div class="stat"><div class="k">URL local OpenClaw</div><div class="v" style="font-size:1rem">http://127.0.0.1:18789/</div></div>
+  </section>
+
+  <section class="grid">
+    <div>
+      <div class="panel">
+        <h2>Estado actual</h2>
+        <pre>OpenClaw status
+
+Overview
+┌──────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Item                 │ Value                                                                                         │
+├──────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────┤
+│ OS                   │ linux 6.17.0-22-generic (x64) · node 22.22.2                                                  │
+│ Dashboard            │ http://127.0.0.1:18789/                                                                       │
+│ Tailscale            │ off                                                                                           │
+│ Channel              │ stable (default)                                                                              │
+│ Update               │ available · pnpm · npm update 2026.4.23                                                       │
+│ Gateway              │ local · ws://127.0.0.1:18789 (local loopback) · reachable 53ms · auth token · chuwi-agent     │
+│                      │ (192.168.31.227) app 2026.4.22 linux 6.17.0-22-generic                                        │
+│ Gateway self         │ chuwi-agent (192.168.31.227) app 2026.4.22 linux 6.17.0-22-generic                            │
+│ Gateway service      │ systemd installed · enabled · running (pid 63350, state active)                               │
+│ Node service         │ systemd not installed                                                                         │
+│ Agents               │ 1 · no bootstrap files · sessions 2 · default main active 2m ago                              │
+│ Memory               │ 0 files · 0 chunks · dirty · sources memory · plugin memory-core · vector ready · fts ready   │
+│                      │ · cache on (0)                                                                                │
+│ Plugin compatibility │ none                                                                                          │
+│ Probes               │ skipped (use --deep)                                                                          │
+│ Events               │ none                                                                                          │
+│ Tasks                │ none                                                                                          │
+│ Heartbeat            │ 30m (main)                                                                                    │
+│ Sessions             │ 2 active · default gpt-5.4 (200k ctx) · ~/.openclaw/agents/main/sessions/sessions.json        │
+└──────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Security audit
+Summary: 0 critical · 5 warn · 1 info
+  WARN Reverse proxy headers are not trusted
+    gateway.bind is loopback and gateway.trustedProxies is empty. If you expose the Control UI through a reverse proxy, configure trusted proxies so local-client c…
+    Fix: Set gateway.trustedProxies to your proxy IPs or keep the Control UI local-only.
+  WARN Control UI insecure auth toggle enabled
+    gateway.controlUi.allowInsecureAuth=true does not bypass secure context or device identity checks; only dangerouslyDisableDeviceAuth disables Control UI device…
+    Fix: Disable it or switch to HTTPS (Tailscale Serve) or localhost.
+  WARN Insecure or dangerous config flags enabled
+    Detected 1 enabled flag(s): gateway.controlUi.allowInsecureAuth=true.
+    Fix: Disable these flags when not actively debugging, or keep deployment scoped to trusted/local-only networks.
+  WARN Exec security=full is configured
+    Full exec trust is enabled for: main.
+    Fix: Prefer tools.exec.security=&quot;allowlist&quot; with ask prompts, and reserve &quot;full&quot; for tightly scoped break-glass agents only.
+  WARN Some gateway.nodes.denyCommands entries are ineffective
+    gateway.nodes.denyCommands uses exact node command-name matching only (for example `system.run`), not shell-text filtering inside a command payload. - Unknown …
+    Fix: Use exact command names (for example: canvas.present, canvas.hide, canvas.navigate, canvas.eval, canvas.snapshot, canvas.a2ui.push, canvas.a2ui.pushJSONL, canvas.a2ui.reset). If you need broader restrictions, remove risky command IDs from allowCommands/default workflows and tighten tools.exec policy.
+Full report: openclaw security audit
+Deep probe: openclaw security audit --deep
+
+Channels
+┌──────────┬─────────┬────────┬────────────────────────────────────────────────────────────────────────────────────────┐
+│ Channel  │ Enabled │ State  │ Detail                                                                                 │
+├──────────┼─────────┼────────┼────────────────────────────────────────────────────────────────────────────────────────┤
+│ Telegram │ ON      │ OK     │ token config (8792…WCmc · len 46) · accounts 1/1                                       │
+└──────────┴─────────┴────────┴────────────────────────────────────────────────────────────────────────────────────────┘
+
+Sessions
+┌───────────────────────────────────────────────────┬────────┬─────────┬──────────────┬────────────────────────────────┐
+│ Key                                               │ Kind   │ Age     │ Model        │ Tokens                         │
+├───────────────────────────────────────────────────┼────────┼─────────┼──────────────┼────────────────────────────────┤
+│ agent:main:telegram:direct:8247…                  │ direct │ 2m ago  │ gpt-5.4      │ 48k/200k (24%) · 🗄️ 88% cached │
+│ agent:main:main                                   │ direct │ 39m ago │ gpt-5.4      │ 45k/272k (17%) · 🗄️ 90% cached │
+└───────────────────────────────────────────────────┴────────┴─────────┴──────────────┴────────────────────────────────┘
+
+FAQ: https://docs.openclaw.ai/faq
+Troubleshooting: https://docs.openclaw.ai/troubleshooting
+
+Update available (npm 2026.4.23). Run: openclaw update
+Next steps:
+  Need to share?      openclaw status --all
+  Need to debug live? openclaw logs --follow
+  Need to test channels? openclaw status --deep</pre>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <h2>Cambios del workspace</h2>
+          <pre>M USER.md
+?? .openclaw/
+?? .venv-stt/
+?? HEARTBEAT.md
+?? TOOLS.md
+?? docs/skills-catalog.html
+?? docs/skills-catalog.json
+?? scripts/generate-chuwi-dashboard.py
+?? scripts/generate-skills-catalog.py
+?? tmp/
+?? transcripts/</pre>
+        </div>
+        <div class="panel">
+          <h2>Cambios de la config local</h2>
+          <pre>M devices/paired.json
+ M identity/device-auth.json</pre>
+        </div>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <h2>Historial del workspace</h2>
+          <pre>80eb6cb Add Chuwi ops skill and ranked email/voice options
+238ce2b Add course transcript and step-by-step guide
+62dbad0 Add OpenClaw state snapshot workflow
+085084a Complete workspace bootstrap</pre>
+        </div>
+        <div class="panel">
+          <h2>Historial de configuración</h2>
+          <pre>ce3fc78 Allow Telegram group access for master&#x27;s account and restart gateway
+a47c5b3 Refine local OpenClaw state tracking
+c7b6383 Establish local OpenClaw state repo</pre>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="panel links">
+        <h2>Enlaces útiles</h2>
+        <ul>
+          <li><a href="skills-catalog.html">Catálogo de skills</a></li>
+          <li><a href="skills-catalog.json">Catálogo JSON</a></li>
+          <li><a href="http://127.0.0.1:18789/">Dashboard local de OpenClaw</a></li>
+        </ul>
+        <p class="muted">Para verlo desde el móvil fuera del mini‑PC, el siguiente paso recomendable es publicarlo con Tailscale o proxy seguro. No abierto a pelo.</p>
+      </div>
+      <div class="panel">
+        <h2>Skills privadas</h2>
+        <div class="cards">
+        <article class="card">
+          <h3>sysadmin-chuwi</h3>
+          <p>Maintain and troubleshoot the dedicated Chuwi mini-PC running OpenClaw. Use when checking gateway/channel health, restarting stuck services, inspecting logs, validating Telegram connectivity, updating OpenClaw, snapshotting local state, or doing routine machine upkeep on this host.</p>
+          <code>skills/private/sysadmin-chuwi</code>
+        </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" style="margin-top:14px">
+    <h2>Muestra de skills incluidas</h2>
+    <div class="cards">
+        <article class="card">
+          <h3>1password</h3>
+          <p>Set up and use 1Password CLI (op). Use when installing the CLI, enabling desktop app integration, signing in (single or multi-account), or reading/injecting/running secrets via op.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/1password</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>apple-notes</h3>
+          <p>Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/apple-notes</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>apple-reminders</h3>
+          <p>Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/apple-reminders</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>bear-notes</h3>
+          <p>Create, search, and manage Bear notes via grizzly CLI.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/bear-notes</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>blogwatcher</h3>
+          <p>Monitor blogs and RSS/Atom feeds for updates using the blogwatcher CLI.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/blogwatcher</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>blucli</h3>
+          <p>BluOS CLI (blu) for discovery, playback, grouping, and volume.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/blucli</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>bluebubbles</h3>
+          <p>Use when you need to send or manage iMessages via BlueBubbles (recommended iMessage integration). Calls go through the generic message tool with channel=&quot;bluebubbles&quot;.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/bluebubbles</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>camsnap</h3>
+          <p>Capture frames or clips from RTSP/ONVIF cameras.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/camsnap</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>canvas</h3>
+          <p>Display HTML content on connected OpenClaw nodes (Mac app, iOS, Android).</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/canvas</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>clawhub</h3>
+          <p>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/clawhub</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>coding-agent</h3>
+          <p>Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:&quot;acp&quot;), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/coding-agent</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>discord</h3>
+          <p>Discord ops via the message tool (channel=discord).</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/discord</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>eightctl</h3>
+          <p>Control Eight Sleep pods (status, temperature, alarms, schedules).</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/eightctl</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>gemini</h3>
+          <p>Gemini CLI for one-shot Q&amp;A, summaries, and generation.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/gemini</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>gh-issues</h3>
+          <p>Fetch GitHub issues, spawn sub-agents to implement fixes and open PRs, then monitor and address PR review comments. Usage: /gh-issues [owner/repo] [--label bug] [--limit 5] [--milestone v1.0] [--assignee @me] [--fork user/repo] [--watch] [--interval 5] [--reviews-only] [--cron] [--dry-run] [--model glm-5] [--notify-channel -1002381931352]</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/gh-issues</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>gifgrep</h3>
+          <p>Search GIF providers with CLI/TUI, download results, and extract stills/sheets.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/gifgrep</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>github</h3>
+          <p>GitHub operations via `gh` CLI: issues, PRs, CI runs, code review, API queries. Use when: (1) checking PR status or CI, (2) creating/commenting on issues, (3) listing/filtering PRs or issues, (4) viewing run logs. NOT for: complex web UI interactions requiring manual browser flows (use browser tooling when available), bulk operations across many repos (script with gh api), or when gh auth is not configured.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/github</code>
+        </article>
+        
+
+        <article class="card">
+          <h3>gog</h3>
+          <p>Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs.</p>
+          <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/gog</code>
+        </article>
+        </div>
+  </section>
+</main>
+</body>
+</html>

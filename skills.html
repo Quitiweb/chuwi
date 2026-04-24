@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo de skills de Chuwi</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0b1020; --panel:#121a31; --soft:#1c2747; --text:#edf2ff; --muted:#aab6d3; --accent:#79c0ff; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, sans-serif; background:linear-gradient(180deg,#0b1020,#0f1730); color:var(--text); }
+    main { max-width: 1100px; margin: 0 auto; padding: 32px 20px 64px; }
+    h1 { margin:0 0 8px; font-size: 2rem; }
+    .lead { color:var(--muted); margin:0 0 24px; }
+    .stats { display:flex; gap:12px; flex-wrap:wrap; margin: 18px 0 28px; }
+    .pill { background:var(--soft); border:1px solid #2e3c69; padding:10px 14px; border-radius:999px; color:var(--text); }
+    section { margin-top: 28px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:14px; }
+    .card { background:var(--panel); border:1px solid #253255; border-radius:16px; padding:16px; box-shadow:0 8px 30px rgba(0,0,0,.18); }
+    .card h3 { margin:0 0 8px; color:var(--accent); font-size:1.05rem; }
+    .card p { margin:0 0 12px; color:var(--muted); line-height:1.4; min-height: 4.2em; }
+    code { display:block; padding:8px 10px; border-radius:10px; background:#0b1020; color:#c5d5ff; overflow:auto; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Skills de Chuwi</h1>
+    <p class="lead">Vista rápida de las skills disponibles ahora mismo. Sirve como panel simple mientras montamos algo más potente para web y contenido.</p>
+    <div class="stats">
+      <div class="pill">Total: 54</div>
+      <div class="pill">Privadas: 1</div>
+      <div class="pill">Incluidas con OpenClaw: 53</div>
+      <div class="pill">Correo de Chuwi: quitiweb.chuwi@gmail.com</div>
+    </div>
+
+    <section>
+      <h2>Skills privadas</h2>
+      <div class="grid">
+            <article class="card">
+              <h3>sysadmin-chuwi</h3>
+              <p>Maintain and troubleshoot the dedicated Chuwi mini-PC running OpenClaw. Use when checking gateway/channel health, restarting stuck services, inspecting logs, validating Telegram connectivity, updating OpenClaw, snapshotting local state, or doing routine machine upkeep on this host.</p>
+              <code>skills/private/sysadmin-chuwi</code>
+            </article>
+            </div>
+    </section>
+
+    <section>
+      <h2>Skills incluidas</h2>
+      <div class="grid">
+            <article class="card">
+              <h3>1password</h3>
+              <p>Set up and use 1Password CLI (op). Use when installing the CLI, enabling desktop app integration, signing in (single or multi-account), or reading/injecting/running secrets via op.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/1password</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>apple-notes</h3>
+              <p>Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/apple-notes</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>apple-reminders</h3>
+              <p>Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/apple-reminders</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>bear-notes</h3>
+              <p>Create, search, and manage Bear notes via grizzly CLI.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/bear-notes</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>blogwatcher</h3>
+              <p>Monitor blogs and RSS/Atom feeds for updates using the blogwatcher CLI.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/blogwatcher</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>blucli</h3>
+              <p>BluOS CLI (blu) for discovery, playback, grouping, and volume.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/blucli</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>bluebubbles</h3>
+              <p>Use when you need to send or manage iMessages via BlueBubbles (recommended iMessage integration). Calls go through the generic message tool with channel=&quot;bluebubbles&quot;.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/bluebubbles</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>camsnap</h3>
+              <p>Capture frames or clips from RTSP/ONVIF cameras.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/camsnap</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>canvas</h3>
+              <p>Display HTML content on connected OpenClaw nodes (Mac app, iOS, Android).</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/canvas</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>clawhub</h3>
+              <p>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/clawhub</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>coding-agent</h3>
+              <p>Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:&quot;acp&quot;), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/coding-agent</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>discord</h3>
+              <p>Discord ops via the message tool (channel=discord).</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/discord</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>eightctl</h3>
+              <p>Control Eight Sleep pods (status, temperature, alarms, schedules).</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/eightctl</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>gemini</h3>
+              <p>Gemini CLI for one-shot Q&amp;A, summaries, and generation.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/gemini</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>gh-issues</h3>
+              <p>Fetch GitHub issues, spawn sub-agents to implement fixes and open PRs, then monitor and address PR review comments. Usage: /gh-issues [owner/repo] [--label bug] [--limit 5] [--milestone v1.0] [--assignee @me] [--fork user/repo] [--watch] [--interval 5] [--reviews-only] [--cron] [--dry-run] [--model glm-5] [--notify-channel -1002381931352]</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/gh-issues</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>gifgrep</h3>
+              <p>Search GIF providers with CLI/TUI, download results, and extract stills/sheets.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/gifgrep</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>github</h3>
+              <p>GitHub operations via `gh` CLI: issues, PRs, CI runs, code review, API queries. Use when: (1) checking PR status or CI, (2) creating/commenting on issues, (3) listing/filtering PRs or issues, (4) viewing run logs. NOT for: complex web UI interactions requiring manual browser flows (use browser tooling when available), bulk operations across many repos (script with gh api), or when gh auth is not configured.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/github</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>gog</h3>
+              <p>Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/gog</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>goplaces</h3>
+              <p>Query Google Places API (New) via the goplaces CLI for text search, place details, resolve, and reviews. Use for human-friendly place lookup or JSON output for scripts.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/goplaces</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>healthcheck</h3>
+              <p>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/healthcheck</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>himalaya</h3>
+              <p>CLI to manage emails via IMAP/SMTP. Use `himalaya` to list, read, write, reply, forward, search, and organize emails from the terminal. Supports multiple accounts and message composition with MML (MIME Meta Language).</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/himalaya</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>imsg</h3>
+              <p>iMessage/SMS CLI for listing chats, history, and sending messages via Messages.app.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/imsg</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>mcporter</h3>
+              <p>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/mcporter</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>model-usage</h3>
+              <p>Use CodexBar CLI local cost usage to summarize per-model usage for Codex or Claude, including the current (most recent) model or a full model breakdown. Trigger when asked for model-level usage/cost data from codexbar, or when you need a scriptable per-model summary from codexbar cost JSON.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/model-usage</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>nano-pdf</h3>
+              <p>Edit PDFs with natural-language instructions using the nano-pdf CLI.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/nano-pdf</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>node-connect</h3>
+              <p>Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/node-connect</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>notion</h3>
+              <p>Notion API for creating and managing pages, databases, and blocks.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/notion</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>obsidian</h3>
+              <p>Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/obsidian</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>openai-whisper</h3>
+              <p>Local speech-to-text with the Whisper CLI (no API key).</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/openai-whisper</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>openai-whisper-api</h3>
+              <p>Transcribe audio via OpenAI Audio Transcriptions API (Whisper).</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/openai-whisper-api</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>openhue</h3>
+              <p>Control Philips Hue lights and scenes via the OpenHue CLI.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/openhue</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>oracle</h3>
+              <p>Best practices for using the oracle CLI (prompt + file bundling, engines, sessions, and file attachment patterns).</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/oracle</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>ordercli</h3>
+              <p>Foodora-only CLI for checking past orders and active order status (Deliveroo WIP).</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/ordercli</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>peekaboo</h3>
+              <p>Capture and automate macOS UI with the Peekaboo CLI.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/peekaboo</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>sag</h3>
+              <p>ElevenLabs text-to-speech with mac-style say UX.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/sag</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>session-logs</h3>
+              <p>Search and analyze your own session logs (older/parent conversations) using jq.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/session-logs</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>sherpa-onnx-tts</h3>
+              <p>Local text-to-speech via sherpa-onnx (offline, no cloud)</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/sherpa-onnx-tts</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>skill-creator</h3>
+              <p>Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like &quot;create a skill&quot;, &quot;author a skill&quot;, &quot;tidy up a skill&quot;, &quot;improve this skill&quot;, &quot;review the skill&quot;, &quot;clean up the skill&quot;, &quot;audit the skill&quot;.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/skill-creator</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>slack</h3>
+              <p>Use when you need to control Slack from OpenClaw via the slack tool, including reacting to messages or pinning/unpinning items in Slack channels or DMs.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/slack</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>songsee</h3>
+              <p>Generate spectrograms and feature-panel visualizations from audio with the songsee CLI.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/songsee</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>sonoscli</h3>
+              <p>Control Sonos speakers (discover/status/play/volume/group).</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/sonoscli</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>spotify-player</h3>
+              <p>Terminal Spotify playback/search via spogo (preferred) or spotify_player.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/spotify-player</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>summarize</h3>
+              <p>Summarize or extract text/transcripts from URLs, podcasts, and local files (great fallback for “transcribe this YouTube/video”).</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/summarize</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>taskflow</h3>
+              <p>Use when work should span one or more detached tasks but still behave like one job with a single owner context. TaskFlow is the durable flow substrate under authoring layers like Lobster, ACPX, plugins, or plain code. Keep conditional logic in the caller; use TaskFlow for flow identity, child-task linkage, waiting state, revision-checked mutations, and user-facing emergence.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/taskflow</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>taskflow-inbox-triage</h3>
+              <p>Example TaskFlow authoring pattern for inbox triage. Use when messages need different treatment based on intent, with some routes notifying immediately, some waiting on outside answers, and others rolling into a later summary.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/taskflow-inbox-triage</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>things-mac</h3>
+              <p>Manage Things 3 via the `things` CLI on macOS (add/update projects+todos via URL scheme; read/search/list from the local Things database). Use when a user asks OpenClaw to add a task to Things, list inbox/today/upcoming, search tasks, or inspect projects/areas/tags.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/things-mac</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>tmux</h3>
+              <p>Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping pane output.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/tmux</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>trello</h3>
+              <p>Manage Trello boards, lists, and cards via the Trello REST API.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/trello</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>video-frames</h3>
+              <p>Extract frames or short clips from videos using ffmpeg.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/video-frames</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>voice-call</h3>
+              <p>Start voice calls via the OpenClaw voice-call plugin.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/voice-call</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>wacli</h3>
+              <p>Send WhatsApp messages to other people or search/sync WhatsApp history via the wacli CLI (not for normal user chats).</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/wacli</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>weather</h3>
+              <p>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/weather</code>
+            </article>
+            
+
+            <article class="card">
+              <h3>xurl</h3>
+              <p>A CLI tool for making authenticated requests to the X (Twitter) API. Use this skill when you need to post tweets, reply, quote, search, read posts, manage followers, send DMs, upload media, or interact with any X API v2 endpoint.</p>
+              <code>/home/quitiweb/.npm-global/lib/node_modules/openclaw/skills/xurl</code>
+            </article>
+            </div>
+    </section>
+  </main>
+</body>
+</html>
