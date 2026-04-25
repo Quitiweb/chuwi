@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Presupuesto de boda · Chuwi</title>
+  <meta name="description" content="Comparativa de presupuesto de boda según número de invitados, con extras típicos en Andalucía en 2026." />
+  <style>
+    :root{--bg:#0d1226;--panel:#171f3d;--line:#334276;--text:#edf2ff;--muted:#a7b2d8;--accent:#7bd0ff;--ok:#70e39b;--warn:#fbbf24}
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:linear-gradient(180deg,#0d1226,#111936);color:var(--text)}
+    main{max-width:1100px;margin:0 auto;padding:28px 18px 60px}.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+    a{color:var(--accent);text-decoration:none}.muted{color:var(--muted)} h1,h2,h3{line-height:1.2} p,li{line-height:1.65}
+    .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.stack{display:grid;gap:18px}.hero{margin-bottom:18px}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.kpi{background:#121935;border:1px solid #2f3b72;border-radius:16px;padding:14px}.kpi strong{display:block;font-size:1.4rem}
+    .slider-wrap{margin:16px 0}.row{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.chip{border:1px solid #3c4b8a;background:#121935;color:var(--text);padding:8px 12px;border-radius:999px;cursor:pointer}.chip.active{background:#1a2650;border-color:#7bd0ff}
+    input[type=range]{width:100%}.summary{display:grid;gap:10px}.summary-line{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #273464}.summary-line:last-child{border-bottom:0}.total{font-size:1.2rem;font-weight:700;color:var(--ok)}
+    table{width:100%;border-collapse:collapse;background:#121935;border:1px solid #2f3b72;border-radius:14px;overflow:hidden} th,td{padding:12px 10px;text-align:left;border-bottom:1px solid #273464} th{background:#0f1730} tr:last-child td{border-bottom:0}
+    .checks{display:grid;gap:10px}.check{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 14px;border-radius:14px;background:#121935;border:1px solid #2f3b72}.check label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}.check small{display:block;color:var(--muted)}
+    .note{padding:14px 16px;border-radius:14px;background:#121935;border:1px solid #2f3b72}.warn{color:var(--warn)}
+    @media (max-width:900px){.grid,.kpis{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card hero">
+      <a href="../index.html">← Volver a Chuwi</a>
+      <h1>Presupuesto de boda</h1>
+      <p class="muted">Estimador rápido para jugar con escenarios reales de una boda en Andalucía en 2026. Base orientativa: <strong>100 € por invitado</strong>, más extras típicos que luego podremos ir afinando o cambiando.</p>
+      <div class="kpis">
+        <div class="kpi"><span class="muted">Base por invitado</span><strong>100 €</strong></div>
+        <div class="kpi"><span class="muted">Zona pensada</span><strong>Andalucía 2026</strong></div>
+        <div class="kpi"><span class="muted">Uso</span><strong>Comparar escenarios</strong></div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="stack">
+        <div class="card">
+          <div class="row">
+            <div>
+              <h2>Invitados</h2>
+              <p class="muted">Mueve el rango o toca una cifra rápida.</p>
+            </div>
+            <div><strong id="guestCount">120</strong> invitados</div>
+          </div>
+          <div class="slider-wrap">
+            <input id="guestRange" type="range" min="20" max="300" step="5" value="120" />
+          </div>
+          <div class="chips" id="guestPresets">
+            <button class="chip" data-value="50">50</button>
+            <button class="chip" data-value="80">80</button>
+            <button class="chip active" data-value="120">120</button>
+            <button class="chip" data-value="150">150</button>
+            <button class="chip" data-value="200">200</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Extras típicos</h2>
+          <p class="muted">He puesto una primera selección razonable. Luego la afinamos contigo.</p>
+          <div class="checks" id="extrasList"></div>
+        </div>
+
+        <div class="card">
+          <h2>Comparativa rápida</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Invitados</th>
+                <th>Banquete</th>
+                <th>Extras activos</th>
+                <th>Total estimado</th>
+              </tr>
+            </thead>
+            <tbody id="comparisonBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside class="stack">
+        <div class="card">
+          <h2>Resumen del escenario</h2>
+          <div class="summary" id="summary"></div>
+        </div>
+
+        <div class="card">
+          <h2>Qué estoy asumiendo</h2>
+          <ul>
+            <li><strong>100 € por invitado</strong> como base del cubierto/banquete.</li>
+            <li>Extras con importes orientativos de mercado medio en <strong>Andalucía 2026</strong>.</li>
+            <li>No incluye luna de miel ni anillos.</li>
+            <li>Sirve para comparar escenarios, no como presupuesto cerrado.</li>
+          </ul>
+        </div>
+
+        <div class="note">
+          <strong>Buena base para seguir:</strong>
+          <p class="muted">Si quieres, en la siguiente pasada lo convierto en una versión más seria con categorías separadas: banquete, ceremonia, fiesta, imagen, papelería, transporte y colchón de imprevistos.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    const BASE_PER_GUEST = 100;
+    const extras = [
+      { id: 'foto', name: 'Foto y vídeo', price: 1800, checked: true, desc: 'Pack medio con cobertura del día.' },
+      { id: 'dj', name: 'DJ / sonido / fiesta', price: 900, checked: true, desc: 'Equipo y animación básica.' },
+      { id: 'flores', name: 'Decoración floral', price: 1200, checked: true, desc: 'Centro, ceremonia y detalles.' },
+      { id: 'vestido', name: 'Vestido y arreglos', price: 1800, checked: true, desc: 'Estimación media sin lujo extremo.' },
+      { id: 'traje', name: 'Traje novio', price: 600, checked: true, desc: 'Traje, camisa y ajustes.' },
+      { id: 'belleza', name: 'Peluquería y maquillaje', price: 350, checked: true, desc: 'Novia y retoques básicos.' },
+      { id: 'papeleria', name: 'Invitaciones y papelería', price: 350, checked: false, desc: 'Invitaciones, seating y minutas.' },
+      { id: 'transporte', name: 'Coche / transporte', price: 450, checked: false, desc: 'Desplazamiento o coche especial.' },
+      { id: 'recena', name: 'Recena / candy / extras fiesta', price: 500, checked: false, desc: 'Mesa dulce o recena de madrugada.' },
+      { id: 'imprevistos', name: 'Colchón de imprevistos', price: 1000, checked: true, desc: 'Siempre conviene meterlo.' },
+    ];
+
+    const presets = [50, 80, 120, 150, 200];
+    const guestRange = document.getElementById('guestRange');
+    const guestCount = document.getElementById('guestCount');
+    const extrasList = document.getElementById('extrasList');
+    const summary = document.getElementById('summary');
+    const comparisonBody = document.getElementById('comparisonBody');
+    const guestPresets = document.getElementById('guestPresets');
+
+    function money(n){ return new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); }
+    function activeExtrasTotal(){ return extras.filter(e=>e.checked).reduce((acc,e)=>acc+e.price,0); }
+    function totalForGuests(guests){ return guests * BASE_PER_GUEST + activeExtrasTotal(); }
+
+    function renderExtras(){
+      extrasList.innerHTML = extras.map(extra => `
+        <div class="check">
+          <label>
+            <input type="checkbox" data-id="${extra.id}" ${extra.checked ? 'checked' : ''} />
+            <span>
+              <strong>${extra.name}</strong>
+              <small>${extra.desc}</small>
+            </span>
+          </label>
+          <strong>${money(extra.price)}</strong>
+        </div>
+      `).join('');
+
+      extrasList.querySelectorAll('input').forEach(input => {
+        input.addEventListener('change', () => {
+          const item = extras.find(e => e.id === input.dataset.id);
+          item.checked = input.checked;
+          renderAll();
+        });
+      });
+    }
+
+    function renderSummary(){
+      const guests = Number(guestRange.value);
+      const banquet = guests * BASE_PER_GUEST;
+      const extrasTotal = activeExtrasTotal();
+      const total = banquet + extrasTotal;
+      summary.innerHTML = `
+        <div class="summary-line"><span>Invitados</span><strong>${guests}</strong></div>
+        <div class="summary-line"><span>Banquete (${money(BASE_PER_GUEST)} x invitado)</span><strong>${money(banquet)}</strong></div>
+        <div class="summary-line"><span>Extras activos</span><strong>${money(extrasTotal)}</strong></div>
+        <div class="summary-line total"><span>Total estimado</span><strong>${money(total)}</strong></div>
+      `;
+    }
+
+    function renderComparison(){
+      comparisonBody.innerHTML = presets.map(guests => {
+        const banquet = guests * BASE_PER_GUEST;
+        const total = totalForGuests(guests);
+        return `
+          <tr>
+            <td>${guests}</td>
+            <td>${money(banquet)}</td>
+            <td>${money(activeExtrasTotal())}</td>
+            <td><strong>${money(total)}</strong></td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderPresetState(){
+      guestPresets.querySelectorAll('.chip').forEach(btn => {
+        btn.classList.toggle('active', Number(btn.dataset.value) === Number(guestRange.value));
+      });
+    }
+
+    function renderAll(){
+      guestCount.textContent = guestRange.value;
+      renderPresetState();
+      renderSummary();
+      renderComparison();
+    }
+
+    guestRange.addEventListener('input', renderAll);
+    guestPresets.querySelectorAll('.chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        guestRange.value = btn.dataset.value;
+        renderAll();
+      });
+    });
+
+    renderExtras();
+    renderAll();
+  </script>
+</body>
+</html>
